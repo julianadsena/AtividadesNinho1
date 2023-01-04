@@ -1,0 +1,1 @@
+#1 modelar classe pokemon
