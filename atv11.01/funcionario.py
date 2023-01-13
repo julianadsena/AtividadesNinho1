@@ -26,7 +26,17 @@ class Funcionario:
     def getCargo(self):
         return self._cargo
     def setCargo(self,cargo):
-        self._cargo = cargo  
+        self._cargo = cargo 
+    def getLogin(self):
+        return "Este usuário não possui login" 
+    def mostrarFuncionario(self):
+        print(f"""
+        ID = {self._id}
+        Funcionario = {self._nome}
+        CPF = {self._cpf}
+        Salario = {self._salario}
+        Cargo = {self._cargo}
+        """)
 class Gerente(Funcionario):
     def __init__(self, id, nome,cpf, salario, cargo,login,senha):
         super().__init__(id, nome,cpf, salario, cargo)
@@ -40,5 +50,6 @@ class Gerente(Funcionario):
         self._login = login
     def setSenha(self,senha):
         self._senha = senha
+
 
         

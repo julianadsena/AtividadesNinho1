@@ -13,14 +13,25 @@ class Empresa:
         self._funcionarioLogado = funcionarioLogado
     def login(self,login,senha):
         for funcionario in self._listaFuncionarios:
-            if funcionario.getCargo() == "Gerente":
                 if funcionario.getLogin() == login:
                     if funcionario.getSenha() == senha:    
                         self.setFuncionarioLogado (funcionario)
                         print(f"Logado com {self.getFuncionarioLogado().getNome()}")
                         break
-    def imprimirFuncionarios(self):
-        print(self._listaFuncionarios)
-        
+    def imprimirFuncionarios(self): #visualizar lista de funcionario 
+        print("Método de impressão com contador")
+        for i in range(len(self._listaFuncionarios)):
+            print(f"{i+1} - {self._listaFuncionarios[i]._nome}")
+        print("Método percorrendo lista")
+        for func in self._listaFuncionarios:
+            print(f"{func._id} - {func._nome}")
+    def visualizarFuncionario(self,idFuncionario):
+        for func in self._listaFuncionarios:
+            if str(func._id) == idFuncionario:
+                func.mostrarFuncionario()
+                return "Funcionario encontrado"
+        else: 
+            print("O id não existe na lista de funcionário")
+
 
 
