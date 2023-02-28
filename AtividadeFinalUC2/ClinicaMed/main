@@ -1,1 +1,10 @@
+INFORMAÇÕES DO ARQUIVO
 
+Tela Login
+  Usuario = Usuario 
+  Senha = 1234
+Tela de conexão ao banco de dados
+  host = localhost
+  user = postgres
+  senha = cateq2023
+obs: porta configurada é 5433
