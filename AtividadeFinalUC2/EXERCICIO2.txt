@@ -1,0 +1,44 @@
+DROP DATABASE IF EXISTS "Alunos";
+CREATE DATABASE "Escola";
+    
+
+DROP TABLE IF EXISTS "Alunos";
+    CREATE TABLE "Alunos"(
+        "NroMatricula" int GENERATED ALWAYS AS IDENTITY,
+        "Nome" varchar(255) NOT NULL,
+        "CPF" char(11) NOT NULL UNIQUE,
+	"Endereco" varchar(255),
+	"Telefone" char(11),
+	"anoNasc" char(10),
+        Primary Key("NroMatricula"));
+DROP TABLE IF EXISTS "Disciplina";
+    CREATE TABLE "Disciplina"(
+        "CodDisciplina" int GENERATED ALWAYS AS IDENTITY,
+        "Nome" varchar(255) NOT NULL,
+        "CodCurso" char(11) NOT NULL UNIQUE,
+	Primary Key("CodDisciplina"));
+DROP TABLE IF EXISTS "Matricula";
+    CREATE TABLE "Matricula"(
+	"NroMatricula" int,
+	"CodDisciplina" int GENERATED ALWAYS AS IDENTITY,
+	"Semestre" char(3),
+	"Ano" char(4),
+	"Nota" char(3),
+	"NroFaltas" char(2),
+	Primary Key("NroMatricula"),
+	Constraint fk_nroma
+	FOREIGN KEY ("NroMatricula") REFERENCES "Alunos" ("NroMatricula"));
+
+INSERT INTO "Alunos"
+ VALUES(default, 'Julia', '03151155066','Rua abc','32668562','19/05/1997')
+
+SE INSERIR DUPLICADO:
+	erro: ERROR:  duplicate key value violates unique constraint "Alunos_CPF_key"
+	DETAIL:  Key ("CPF")=(03151155066) already exists.
+	SQL state: 23505
+
+INSERIR COLUNA EM TABELA EXISTENTE:
+	ALTER TABLE "Alunos" ADD nome_coluna1 VARCHAR(20) NULL;
+ALTERAR TIPO DE DADO INSERIDO NA COLUNA:
+	ALTER TABLE "Alunos"
+	alter  COLUMN "nome_coluna1" type char(25);
