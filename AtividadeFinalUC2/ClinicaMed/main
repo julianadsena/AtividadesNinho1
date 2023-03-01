@@ -2,6 +2,8 @@ Projeto: Cadastro de pacientes com agendamento de consultas
 Arquivo em MP4 com o sistema funcionando
 INFORMAÇÕES DO ARQUIVO
 arquivo clinica.png possui o diagrama
+Instruões:
+Abrir primeiro arquivo login
 Tela Login
   Usuario = Usuario 
   Senha = 1234
