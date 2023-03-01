@@ -14,12 +14,13 @@
 # Update - Atualizar um campo da tabela
 # Delete - Remover uma entrada da tabela. Ex: Remover um funcionário
 class Livros:
-    def __init__(self,id,nome,paginas,anoLancamento,autor):
+    def __init__(self,id,nome,paginas,anoLancamento,autor,edicao):
         self.id = id
         self.nome = nome
         self.paginas = paginas
         self.anoLancamento = anoLancamento
         self.autor = autor
+        self.edicao = edicao
     def imprimirLivros (self):
         print(f'''
         Informações do Livro:
@@ -28,14 +29,14 @@ class Livros:
         Paginas - {self.paginas}
         Ano Lancamento - {self.anoLancamento}
         Autor - {self.autor}''')
-    def inserirLivros(self,tabela):
+    def inserirLivros(self):
         sql = print(f'''
-        INSERT INTO "{tabela}"
-        VALUES(default,'{self.nome}','{self.paginas}','{self.anoLancamento}','{self.autor}')''')
+        INSERT INTO "Livros"
+        VALUES(default,'{self.nome}','{self.paginas}','{self.anoLancamento}','{self.autor}','{self.edicao}')''')
         return sql
-    def atualizarLivros(self,tabela):
+    def atualizarLivros(self):
         sql = print(f'''
-        UPDATE "{tabela}"
+        UPDATE "Livros"
         SET "Nome" = '{self.nome}', "Paginas" = {self.paginas}, "Ano Lancamento" = {self.anoLancamento},"Autor" = {self.autor} 
         Where "ID" = '{self.id}' ''')
         return sql

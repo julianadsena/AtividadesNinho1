@@ -20,7 +20,7 @@ class Cliente:
     def consultarAlugueis(self):
         sql = f'''
         SELECT * FROM "Aluguel"
-        WHERE "ID_Cliente" = '{self._id}'
+        WHERE "ID" = '{self._id}'
         '''
         return sql
 
